@@ -1,0 +1,43 @@
+{
+    "_id" : ObjectId("597708bd2d8d55676651e8b3"),
+    "username" : "cuongvip1295@yahoo.com.vn",
+    "name" : "Cancel Room",
+    "click" : "101",
+    "details" : "You canceled Room 101 for 3 days with total price $100/day",
+    "note" : "Check in: 19-07-2017 - check out: 22-07-2017",
+    "status" : "Email replied",
+    "result" : "Cancel Successfully"
+}
+
+{
+    "_id" : ObjectId("597773e42d8d5567665223f3"),
+    "username" : "cuongvip1295@yahoo.com.vn",
+    "name" : "Cancel Room",
+    "click" : "101",
+    "details" : "You canceled Room 101 for 3 days with total price $100/day",
+    "note" : "Check in: 19-07-2017 - check out: 22-07-2017",
+    "status" : "Email replied",
+    "result" : "Cancel Successfully"
+}
+
+{
+    "_id" : ObjectId("597773e82d8d5567665223f8"),
+    "username" : "cuongvip1295@yahoo.com.vn",
+    "name" : "Cancel Room",
+    "click" : "101",
+    "details" : "You canceled Room 101 for 3 days with total price $100/day",
+    "note" : "Check in: 19-07-2017 - check out: 22-07-2017",
+    "status" : "Email replied",
+    "result" : "Cancel Successfully"
+}
+
+{
+    "_id" : ObjectId("597773f02d8d5567665223fb"),
+    "username" : "cuongvip1295@gmail.com",
+    "name" : "Cancel Room",
+    "click" : "101",
+    "details" : "You canceled Room 101 for 3 days with total price $100/day",
+    "note" : "Check in: 19-07-2017 - check out: 22-07-2017",
+    "status" : "Email replied",
+    "result" : "Cancel Successfully"
+}

@@ -1,0 +1,33 @@
+<div class="spacer services wowload fadeInUp">
+    <div class="container" style="margin-top: -90px;">
+        <div class="carousel-inner">
+            <br>
+            <h3>Top Rooms</h3>
+            <table class="activity" border="1">
+                <tr>
+                    <th>No.</th>
+                    <th>Room</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Total Star</th>
+                    <th>No. of Vote</th>
+                    <th>Average Star</th>
+                    <th>View Details</th>
+                </tr>
+                <tr *ngFor="let room of listrooms | orderby : 'average_star'; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>Room {{room.name}}</td>
+                    <td>{{room.type}}</td>
+                    <td>{{room.size}}</td>
+                    <td>{{room.price}}</td>
+                    <td>{{room.star}}</td>
+                    <td>{{room.numvote}}</td>
+                    <td>{{room.average_star | decimal}}</td>
+                    <td><a style="cursor: pointer" onclick="document.documentElement.scrollTop = 0; document.body.scrollTop = 0;" [routerLink]="['/room-details', room._id]" >View content</a></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>

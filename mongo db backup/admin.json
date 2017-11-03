@@ -1,0 +1,10 @@
+{
+    "_id" : ObjectId("597327bee1342e53d8e51019"),
+    "gender" : "male",
+    "birthday" : "1995-12-10",
+    "img" : "avatar5.png",
+    "username" : "cuongvip1295@yahoo.com.vn",
+    "password" : "ititiu13170",
+    "phone" : "0908998923",
+    "name" : "Hùng Cu?ng"
+}

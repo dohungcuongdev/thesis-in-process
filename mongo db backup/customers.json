@@ -1,0 +1,23 @@
+{
+    "_id" : ObjectId("59775fd8a31dfb2d60c4ff58"),
+    "username" : "cuongvip1295@gmail.com",
+    "password" : "$2a$10$Efgfd8zT1zntc07bJBu69OfyiWJ27owtIZsKSU6GXZSPeapkwA44a",
+    "name" : "Cu?ng",
+    "phone" : "0908998923",
+    "address" : "24/7 Phu?ng Bình An Qu?n 2",
+    "balance" : 500,
+    "created_at" : ISODate("2017-07-25T15:12:24.564Z"),
+    "__v" : 0
+}
+
+{
+    "_id" : ObjectId("59775fe8a31dfb2d60c4ff59"),
+    "username" : "cuongvip1295@yahoo.com.vn",
+    "password" : "$2a$10$rV3e3dmliWEJ4dsJFW6ZKOy.92pF5UUqdOxhgw7JDv0TgM79DbCx2",
+    "name" : "Hùng Cu?ng",
+    "phone" : "0908998923",
+    "address" : "24/7 Phu?ng Bình An Qu?n 2",
+    "balance" : 500,
+    "created_at" : ISODate("2017-07-25T15:12:40.742Z"),
+    "__v" : 0
+}
