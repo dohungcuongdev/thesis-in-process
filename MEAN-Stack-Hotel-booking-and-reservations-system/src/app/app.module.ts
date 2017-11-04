@@ -22,6 +22,7 @@ import { RestaurantComponent } from './component/restaurant/restaurant.component
 import { HotelServicesComponent } from './component/restaurant/hotel-services.component';
 import { FeedBackComponent } from './component/feedback/feedback.component';
 import { TopRoomComponent } from './component/room/top-room.component';
+import { RoomsSuggestionComponent } from './component/room/room-suggestion.component';
 
 //service
 import { UserService } from './service/user.service';
@@ -61,6 +62,7 @@ import { IntroDirective } from "./directive/introduction-directive"
     HotelServicesComponent,
     FeedBackComponent,
     TopRoomComponent,
+    RoomsSuggestionComponent,
     CapitalizePipe, //pipe
     DecimalPipe,
     ConvertDatePipe,

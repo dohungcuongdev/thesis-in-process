@@ -23,6 +23,10 @@ export default class ApiService<T> { // no need to import from app module
         return this.http.get(this.apiUrl + id).map(response => response.json())
     }
 
+    protected getAllFromURL(specialURL): Observable<any[]> {
+        return this.http.get(specialURL).map(response => response.json())
+    }
+
     protected getAllby(value, specialURL): Observable<any[]> {
         return this.http.get(specialURL + value).map(response => response.json())
     }

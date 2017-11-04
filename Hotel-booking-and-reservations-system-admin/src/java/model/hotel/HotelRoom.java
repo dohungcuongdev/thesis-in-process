@@ -21,6 +21,7 @@ public class HotelRoom extends HotelItem {
     private String status;
     private String amenities;
     private String booked_by;
+    private String avgAminities; 
     private String checkin;
     private String checkout;
     private int star;
@@ -98,6 +99,14 @@ public class HotelRoom extends HotelItem {
         this.numvote = numvote;
     }
 
+    public String getAvgAminities() {
+        return avgAminities;
+    }
+
+    public void setAvgAminities(String avgAminities) {
+        this.avgAminities = avgAminities;
+    }
+
     @Override
     public void initializeSomeInfor() {
         if (status.equals("available")) {
@@ -127,11 +136,11 @@ public class HotelRoom extends HotelItem {
     }
 
     private boolean isEnoughInfor() {
-        return checkNotNull(name, type, size, price, status, details, numpeople, amenities);
+        return checkNotNull(name, type, size, price, status, details, numpeople, amenities, avgAminities);
     }
     
     private boolean isNumberFormat() {
-        return checkNaturalNumber(size, numpeople) && price > 0;
+        return checkNaturalNumber(size, numpeople, avgAminities) && price > 0;
     }
 
     public boolean isvalidDate() {

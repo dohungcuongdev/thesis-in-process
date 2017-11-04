@@ -22,7 +22,8 @@ var roomSchema = new Schema(
         details: String,
         amenities: String,
         star: Number,
-        numvote: Number
+        numvote: Number,
+        avgAminities: Number
     },
     {
         collection: 'rooms'

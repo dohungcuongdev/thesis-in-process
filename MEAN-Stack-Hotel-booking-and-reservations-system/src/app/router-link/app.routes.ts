@@ -11,6 +11,7 @@ import { RestaurantComponent } from '../component/restaurant/restaurant.componen
 import { HotelServicesComponent } from '../component/restaurant/hotel-services.component'
 import { FeedBackComponent } from '../component/feedback/feedback.component';
 import { TopRoomComponent } from '../component/room/top-room.component';
+import { RoomsSuggestionComponent } from '../component/room/room-suggestion.component';
 
 const routing: Routes = [
     {
@@ -21,6 +22,7 @@ const routing: Routes = [
     { path: 'home/:id', component: HomeComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'top-room', component: TopRoomComponent },
+    { path: 'room-suggestion', component: RoomsSuggestionComponent },
     { path: 'gallery', component: GalleryComponent },
     { path: 'introduction', component: IntroductionComponent },
     { path: 'rooms-tariff', component: RoomsTariffComponent },

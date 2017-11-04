@@ -47,11 +47,13 @@
                     <li>Size must be a natural number (sp)</li>
                     <li>Price must be a number ($)</li>
                     <li>Number of Adults must be a natural number (*Note that: 2 children are counted as 1 adult)</li>
+                    <li>Amenities Score must be a natural number ($)</li>
                     <li>You should write a suitable details for this room</li>
-                    <li>Amenities should be written in new line for each amenity</li>
+                    <li>Amenities should be written in one line with each amenity is separated by '.' </li>
                     <li>Status much be available or booked</li>
-                    <li>If Status is available/booked then the Booked By, Check in, Check out must be null/not null</li>
-                    <li>Booked By should be the username whose booked this room</li>
+                    <li>If Status is available then the Booked By, Check in, Check out must be null</li>
+                    <li>If Status is booked then the Booked By, Check in, Check out must be filled out</li>
+                    <li>Booked By should be the username who booked this room</li>
                     <li>Check in must be the the check in date of the customer</li>
                     <li>Check out must be the the check out date of the customer</li>
                 </ul>
@@ -102,16 +104,22 @@
                         <form:input required="true" type="number" class="form-control" value="${room.numpeople}" placeholder="Number of Adults" path="numpeople" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
                     </div>
                     <div class="form-group">
-                        <label style="margin-top: 20px">Details</label>
-                    </div>
-                    <div class="form-group">
-                        <form:textarea required="true" id="details" class="form-control" value="${room.details}" path="details" placeholder="Write the details for this room..." rows="4"/>
-                    </div>
-                    <div class="form-group">
                         <label style="margin-top: 13px">Amenities</label>
                     </div>
                     <div class="form-group">
                         <form:textarea required="true" id="amenities" class="form-control" value="${room.amenities}" path="amenities" placeholder="Write the amenities for this room..." rows="6"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Amenities Score</label>
+                    </div>
+                    <div class="form-group">
+                        <form:input required="true" type="number" class="form-control" value="${room.avgAminities}" placeholder="Amenities Score" path="avgAminities" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-top: 20px">Details</label>
+                    </div>
+                    <div class="form-group">
+                        <form:textarea required="true" id="details" class="form-control" value="${room.details}" path="details" placeholder="Write the details for this room..." rows="4"/>
                     </div>
                     <div class="form-group">
                         <label>Status</label>

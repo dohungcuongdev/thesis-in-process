@@ -24,4 +24,8 @@ export class RoomService extends ApiService<Room> {
     editRoom(room: Room): Observable<Response> {
         return this.edit(room._id, room)
     }
+
+    getAllRoomsFromURL(specialURL): Observable<Room[]> {
+        return this.getAllFromURL(specialURL);
+    }
 }

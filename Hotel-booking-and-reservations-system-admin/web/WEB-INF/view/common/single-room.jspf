@@ -35,6 +35,7 @@
                     <p><strong>Size</strong>: ${room.size}sq</p>
                     <p><strong>Price</strong>: $${room.price}/day</p>
                     <p><strong>Number of Adults</strong>: ${room.numpeople}</p>
+                    <p><strong>Amenities Score</strong>: ${room.avgAminities}</p>
                 </div>
 
                 <div class="alert alert-block alert-warning">  
