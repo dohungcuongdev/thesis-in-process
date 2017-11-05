@@ -44,7 +44,7 @@ public class Test {
     public static void main(String args[]) {
         ImpCustomerDAO d = new ImpCustomerDAO();
 
-        System.out.println(d.getDataCollection());
+        System.out.println(d.getListFeedbackRoom("cuongvip1295@gmail.com"));
 
     }
 

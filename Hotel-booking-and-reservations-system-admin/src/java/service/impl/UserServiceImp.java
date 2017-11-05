@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import model.Activity;
+import model.CustomerDataCollection;
+import model.DataCollection;
+import model.FeedbackRoom;
 import model.user.Administrator;
 import model.user.Customer;
 import model.user.FollowUsers;
@@ -126,6 +129,41 @@ public class UserServiceImp implements UserService {
     @Override
     public void seenNotification(String id) {
         activityDAO.seenNotification(id);
+    }
+
+    @Override
+    public ArrayList<DataCollection> getListRoomBooked(String username) {
+        return customerDAO.getListRoomBooked(username);
+    }
+
+    @Override
+    public List<DataCollection> getListRoomCanceled(String username) {
+        return customerDAO.getListRoomCanceled(username);
+    }
+
+    @Override
+    public double getAvgStarRoomFeedback(String username) {
+        return customerDAO.getAvgStarRoomFeedback(username);
+    }
+
+    @Override
+    public List<CustomerDataCollection> getDataCollection() {
+        return customerDAO.getDataCollection();
+    }
+
+    @Override
+    public double getAvgStarFeedback(String username) {
+        return customerDAO.getAvgStarFeedback(username);
+    }
+
+    @Override
+    public CustomerDataCollection getOneDataCollection(String username) {
+        return customerDAO.getOneDataCollection(username);
+    }
+
+    @Override
+    public List<FeedbackRoom> getListFeedbackRoom(String username) {
+        return customerDAO.getListFeedbackRoom(username);
     }
     
 }

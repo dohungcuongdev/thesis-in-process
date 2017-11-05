@@ -18,6 +18,7 @@ public class CustomerDataCollection {
     private List roomBooked;
     private List roomCanceled;
     private List dateVisited;
+    private List feedbackroom;
     private double avgfeedbackRoom;
     private double avgFeedbackSV;
 
@@ -53,6 +54,14 @@ public class CustomerDataCollection {
         this.dateVisited = dateVisited;
     }
 
+    public List getFeedbackroom() {
+        return feedbackroom;
+    }
+
+    public void setFeedbackroom(List feedbackroom) {
+        this.feedbackroom = feedbackroom;
+    }
+
     public double getAvgfeedbackRoom() {
         return avgfeedbackRoom;
     }
@@ -81,6 +90,16 @@ public class CustomerDataCollection {
         this.roomBooked = roomBooked;
         this.roomCanceled = roomCanceled;
         this.dateVisited = dateVisited;
+        this.avgfeedbackRoom = avgfeedbackRoom;
+        this.avgFeedbackSV = avgFeedbackSV;
+    }
+
+    public CustomerDataCollection(Customer cus, List roomBooked, List roomCanceled, List dateVisited, List feedbackroom, double avgfeedbackRoom, double avgFeedbackSV) {
+        this.cus = cus;
+        this.roomBooked = roomBooked;
+        this.roomCanceled = roomCanceled;
+        this.dateVisited = dateVisited;
+        this.feedbackroom = feedbackroom;
         this.avgfeedbackRoom = avgfeedbackRoom;
         this.avgFeedbackSV = avgFeedbackSV;
     }

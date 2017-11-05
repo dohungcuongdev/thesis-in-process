@@ -87,6 +87,10 @@ router.post('/', function (request, response) {
                 roomname = follow_users.page_access.substring(10, 13);
             }
 
+            if(follow_users.page_access.includes('send feedback for room')) {
+                roomname = follow_users.page_access.substring(23, 26);
+            }
+
             if(roomname != '') {
                 roomModel.findRoomByRoomName(roomname, function (err, room) {
                     if (err) {

@@ -71,6 +71,8 @@
                 background-color:#CC0033;
                 color: #FFFFFF;
             }
+            
+            fa-bar-chart-o:before,.fa-bar-chart:before{content:"\f080"}
         </style>
 
     </head>

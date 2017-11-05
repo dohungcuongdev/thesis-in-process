@@ -57,7 +57,27 @@
         BorderRadius: '5px'
     });
     $('#activity-box').slimScroll({
-        height: '655px',
+        height: '707px',
+        size: '5px',
+        BorderRadius: '5px'
+    });
+    $('#room-booked-box').slimScroll({
+        height: '150px',
+        size: '5px',
+        BorderRadius: '5px'
+    });
+    $('#room-canceled-box').slimScroll({
+        height: '150px',
+        size: '5px',
+        BorderRadius: '5px'
+    });
+    $('#date-visited-box').slimScroll({
+        height: '150px',
+        size: '5px',
+        BorderRadius: '5px'
+    });    
+    $('#feedback-box').slimScroll({
+        height: '150px',
         size: '5px',
         BorderRadius: '5px'
     });

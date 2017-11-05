@@ -188,6 +188,7 @@ public class MainController {
     public String manageUsers(ModelMap model) {
         initialize(model);
         model.put("listusers", userService.getAllCustomers());
+        model.put("cusDataCollection", userService.getDataCollection());
         return "manage-users";
     }
 
@@ -223,6 +224,11 @@ public class MainController {
     public String singleUser(ModelMap model) {
         return manageUsers(model);
     }
+    
+    @RequestMapping(value = "customer", method = RequestMethod.GET)
+    public String singleCustomer(ModelMap model) {
+        return manageUsers(model);
+    }
 
     @RequestMapping(value = "user/{username}", method = RequestMethod.GET)
     public String singleUser(@PathVariable(value = "username") String username, ModelMap model) {
@@ -231,6 +237,13 @@ public class MainController {
         cus.setActivity(userService.getAllActivityByUserName(username));
         model.put("customer", cus);
         return "user";
+    }
+    
+    @RequestMapping(value = "customer/{username}", method = RequestMethod.GET)
+    public String singleCustomer(@PathVariable(value = "username") String username, ModelMap model) {
+        initialize(model);
+        model.put("cusDataCollection", userService.getOneDataCollection(username));
+        return "customer";
     }
 
     //message

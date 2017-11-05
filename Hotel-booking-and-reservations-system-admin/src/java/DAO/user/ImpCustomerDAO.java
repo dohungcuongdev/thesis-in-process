@@ -20,6 +20,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Activity;
 import model.CustomerDataCollection;
+import model.DataCollection;
+import model.FeedbackRoom;
 import model.user.Customer;
 import service.application.DateTimeService;
 
@@ -28,10 +30,10 @@ import service.application.DateTimeService;
  * @author Do Hung Cuong
  */
 public class ImpCustomerDAO implements DAOCustomer {
-    
+
     Gson gson = new Gson();
     DBCollection collection;
-    
+
     {
         try {
             collection = MongoDBConnector.createConnection("customers");
@@ -39,7 +41,7 @@ public class ImpCustomerDAO implements DAOCustomer {
             Logger.getLogger(ImpRoomDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public Customer getCustomerByName(String username) {
         BasicDBObject whereQuery = new BasicDBObject();
@@ -53,7 +55,7 @@ public class ImpCustomerDAO implements DAOCustomer {
         }
         return cus;
     }
-    
+
     @Override
     public List<Customer> getAllCustomers() {
         ArrayList<Customer> customers = new ArrayList<>();
@@ -67,12 +69,12 @@ public class ImpCustomerDAO implements DAOCustomer {
         }
         return customers;
     }
-    
+
     @Override
     public boolean checkexsitCustomer(String username) {
         return getAllCustomers().stream().anyMatch((customer) -> (customer.getUsername().equals(username)));
     }
-    
+
     @Override
     public ArrayList<String> getDateVisit(String username) {
         ArrayList<String> dateVisits = new ArrayList<>();
@@ -85,27 +87,30 @@ public class ImpCustomerDAO implements DAOCustomer {
         });
         return dateVisits;
     }
-    
-    public ArrayList<String> getListRoomBooked(String username) {
-        ArrayList<String> roombooked = new ArrayList<>();
+
+    @Override
+    public ArrayList<DataCollection> getListRoomBooked(String username) {
+        ArrayList<DataCollection> roombooked = new ArrayList<>();
         for (Activity act : new ImpActivityDAO().getAllActivityByUserName(username)) {
             if (act.getName().equals("Book Room")) {
-                roombooked.add(act.getDetails().substring(12));
+                roombooked.add(new DataCollection(act.getTime() + "", act.getDetails().substring(12)));
             }
         }
         return roombooked;
     }
-    
-    public List<String> getListRoomCanceled(String username) {
-        List<String> roombooked = new ArrayList<>();
+
+    @Override
+    public List<DataCollection> getListRoomCanceled(String username) {
+        List<DataCollection> roomcanceled = new ArrayList<>();
         for (Activity act : new ImpActivityDAO().getAllActivityByUserName(username)) {
             if (act.getName().equals("Cancel Room")) {
-                roombooked.add(act.getDetails().substring(20));
+                roomcanceled.add(new DataCollection(act.getTime() + "", act.getDetails().substring(20)));
             }
         }
-        return roombooked;
+        return roomcanceled;
     }
-    
+
+    @Override
     public double getAvgStarRoomFeedback(String username) {
         int star = 0, count = 0;
         for (Activity act : new ImpActivityDAO().getAllActivityByUserName(username)) {
@@ -116,7 +121,7 @@ public class ImpCustomerDAO implements DAOCustomer {
         }
         return star * 1.0 / count;
     }
-    
+
     public int getTotalStarRoomFeedback(String username) {
         int star = 0;
         for (Activity act : new ImpActivityDAO().getAllActivityByUserName(username)) {
@@ -126,7 +131,8 @@ public class ImpCustomerDAO implements DAOCustomer {
         }
         return star;
     }
-    
+
+    @Override
     public double getAvgStarFeedback(String username) {
         int star = 0, count = 0;
         for (Activity act : new ImpActivityDAO().getAllActivityByUserName(username)) {
@@ -137,7 +143,7 @@ public class ImpCustomerDAO implements DAOCustomer {
         }
         return star * 1.0 / count;
     }
-    
+
     public double getTotalStarFeedback(String username) {
         int star = 0;
         for (Activity act : new ImpActivityDAO().getAllActivityByUserName(username)) {
@@ -147,15 +153,35 @@ public class ImpCustomerDAO implements DAOCustomer {
         }
         return star;
     }
-    
+
+    @Override
     public List<CustomerDataCollection> getDataCollection() {
         List<CustomerDataCollection> cdc = new ArrayList<>();
         List<Customer> customers = getAllCustomers();
         for (Customer c : customers) {
             String un = c.getUsername();
-            cdc.add(new CustomerDataCollection(c, getListRoomBooked(un), getListRoomCanceled(un), getDateVisit(un), getAvgStarRoomFeedback(un), getAvgStarFeedback(un)));
+            cdc.add(new CustomerDataCollection(c, getListRoomBooked(un), getListRoomCanceled(un), getDateVisit(un), getListFeedbackRoom(un), getAvgStarRoomFeedback(un), getAvgStarFeedback(un)));
         }
         return cdc;
     }
-    
+
+    @Override
+    public CustomerDataCollection getOneDataCollection(String un) {
+        return new CustomerDataCollection(getCustomerByName(un), getListRoomBooked(un), getListRoomCanceled(un), getDateVisit(un), getListFeedbackRoom(un), getAvgStarRoomFeedback(un), getAvgStarFeedback(un));
+    }
+
+    @Override
+    public List<FeedbackRoom> getListFeedbackRoom(String username) {
+        List<FeedbackRoom> fbr = new ArrayList();
+        for (Activity act : new ImpActivityDAO().getAllActivityByUserName(username)) {
+            if (act.getName().equals("Feedback Room")) {
+                String date = act.getTime() + "";
+                String room = act.getNote().substring(12, 15);
+                int star = act.getNote().charAt(21) - 48;
+                String feedback = act.getContent();
+                fbr.add(new FeedbackRoom(date, room, star, feedback));
+            }
+        }
+        return fbr;
+    }
 }

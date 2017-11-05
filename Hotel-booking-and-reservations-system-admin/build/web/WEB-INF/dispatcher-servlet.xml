@@ -54,6 +54,7 @@
                 <prop key="room.htm">room</prop>
                 <prop key="service.htm">service</prop>
                 <prop key="user.htm">user</prop>
+                <prop key="customer.htm">customer</prop>
                 <prop key="fqa.htm">fqa</prop>
                 <prop key="reply Book Room.htm">reply-booking</prop>
                 <prop key="reply Cancel Room.htm">reply-cancel</prop>
@@ -132,6 +133,10 @@
     <bean name="user"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="user" />
+    
+    <bean name="customer"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="customer" />
     
     <bean name="fqa"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
